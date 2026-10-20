@@ -1,7 +1,7 @@
-"""Agent Framework の evaluate_agent で Local チェックと Foundry 評価を組み合わせて実行する。
+"""Run Local checks and Foundry evaluators together via Agent Framework's evaluate_agent.
 
-実行: python src/evaluate_agent.py
-結果: 標準出力に要約 + results/eval-<timestamp>.json に保存 (共有用)
+Run: python src/evaluate_agent.py
+Output: console summary + results/eval-<timestamp>.json (for sharing)
 """
 
 import asyncio
@@ -26,18 +26,18 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @evaluator
 def has_source_url(response: str) -> bool:
-    """回答に出典 URL が含まれるか (指示「出典 URL を添える」の遵守確認)。"""
+    """Check that the response includes a source URL (verifies the 'include source URLs' instruction)."""
     return re.search(r"https?://", response) is not None
 
 
 @evaluator
 def is_concise(response: str) -> bool:
-    """回答が長すぎないか (文字数ベース。日本語は空白区切りが使えないため)。"""
+    """Check that the response is not too long (character-based, since whitespace splitting doesn't work for Japanese)."""
     return len(response) < 1500
 
 
 def summarize(results) -> dict:
-    """EvalResults のリストを共有しやすい dict に変換する。"""
+    """Convert a list of EvalResults into a shareable dict."""
     summary = []
     for r in results:
         summary.append(
