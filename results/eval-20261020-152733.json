@@ -1,0 +1,225 @@
+{
+  "generated_at": "2026-10-20T15:27:33.829080+00:00",
+  "results": [
+    {
+      "provider": "Local",
+      "status": "completed",
+      "passed": 2,
+      "failed": 2,
+      "total": 4,
+      "per_evaluator": {
+        "has_source_url": {
+          "passed": 2,
+          "failed": 2,
+          "errored": 0
+        },
+        "is_concise": {
+          "passed": 4,
+          "failed": 0,
+          "errored": 0
+        }
+      },
+      "report_url": null,
+      "error": "has_source_url: failed; has_source_url: failed",
+      "items": [
+        {
+          "item_id": "0",
+          "status": "pass",
+          "scores": [
+            {
+              "name": "has_source_url",
+              "score": 1.0,
+              "passed": true
+            },
+            {
+              "name": "is_concise",
+              "score": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "item_id": "1",
+          "status": "fail",
+          "scores": [
+            {
+              "name": "has_source_url",
+              "score": 0.0,
+              "passed": false
+            },
+            {
+              "name": "is_concise",
+              "score": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "item_id": "2",
+          "status": "pass",
+          "scores": [
+            {
+              "name": "has_source_url",
+              "score": 1.0,
+              "passed": true
+            },
+            {
+              "name": "is_concise",
+              "score": 1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "item_id": "3",
+          "status": "fail",
+          "scores": [
+            {
+              "name": "has_source_url",
+              "score": 0.0,
+              "passed": false
+            },
+            {
+              "name": "is_concise",
+              "score": 1.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": "Microsoft Foundry",
+      "status": "completed",
+      "passed": 2,
+      "failed": 2,
+      "total": 4,
+      "per_evaluator": {
+        "intent_resolution": {
+          "passed": 3,
+          "failed": 0
+        },
+        "task_adherence": {
+          "passed": 4,
+          "failed": 0
+        },
+        "relevance": {
+          "passed": 2,
+          "failed": 2
+        },
+        "coherence": {
+          "passed": 4,
+          "failed": 0
+        }
+      },
+      "report_url": "https://ai.azure.com/nextgen/r/jmNLfKMoR62N93IQNfAV5g,rg-ankitdesai,,foundry-ankitdesai,workshop-foundry-ankitdesai/build/evaluations/eval_d723d0017ee44656869beb4aa061c6b0/run/evalrun_dbc58bd29c6c40a1b19ba8da5b4dc42a",
+      "error": null,
+      "items": [
+        {
+          "item_id": "1",
+          "status": "completed",
+          "scores": [
+            {
+              "name": "intent_resolution",
+              "score": 5.0,
+              "passed": true
+            },
+            {
+              "name": "task_adherence",
+              "score": 1.0,
+              "passed": true
+            },
+            {
+              "name": "relevance",
+              "score": 5.0,
+              "passed": true
+            },
+            {
+              "name": "coherence",
+              "score": 5.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "item_id": "2",
+          "status": "completed",
+          "scores": [
+            {
+              "name": "task_adherence",
+              "score": 1.0,
+              "passed": true
+            },
+            {
+              "name": "relevance",
+              "score": 2.0,
+              "passed": false
+            },
+            {
+              "name": "coherence",
+              "score": 4.0,
+              "passed": true
+            },
+            {
+              "name": "intent_resolution",
+              "score": null,
+              "passed": null
+            }
+          ]
+        },
+        {
+          "item_id": "3",
+          "status": "completed",
+          "scores": [
+            {
+              "name": "intent_resolution",
+              "score": 3.0,
+              "passed": true
+            },
+            {
+              "name": "task_adherence",
+              "score": 1.0,
+              "passed": true
+            },
+            {
+              "name": "relevance",
+              "score": 2.0,
+              "passed": false
+            },
+            {
+              "name": "coherence",
+              "score": 4.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "item_id": "4",
+          "status": "completed",
+          "scores": [
+            {
+              "name": "intent_resolution",
+              "score": 3.0,
+              "passed": true
+            },
+            {
+              "name": "task_adherence",
+              "score": 1.0,
+              "passed": true
+            },
+            {
+              "name": "relevance",
+              "score": 3.0,
+              "passed": true
+            },
+            {
+              "name": "coherence",
+              "score": 4.0,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
