@@ -18,9 +18,11 @@ load_dotenv()
 
 INSTRUCTIONS = """You are an assistant that answers questions about the latest Microsoft 365 and Azure release information.
 Always use the MRC MCP tools (https://www.microsoft.com/releasecommunications/mcp) to retrieve primary sources,
-include a source URL with each answer, and respond in English."""
+include a source URL with each answer, and respond in English.
+You may supplement technical details and steps not available from MRC with the Microsoft Learn MCP (https://learn.microsoft.com/api/mcp)."""
 
 MRC_URL = "https://www.microsoft.com/releasecommunications/mcp"
+LEARN_URL = "https://learn.microsoft.com/api/mcp"
 
 
 def main() -> None:
@@ -41,6 +43,11 @@ def main() -> None:
             client.get_mcp_tool(
                 name="MRC",
                 url=MRC_URL,
+                approval_mode="never_require",
+            ),
+            client.get_mcp_tool(
+                name="Learn",
+                url=LEARN_URL,
                 approval_mode="never_require",
             ),
         ],
