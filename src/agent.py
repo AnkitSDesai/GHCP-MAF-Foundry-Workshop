@@ -18,9 +18,11 @@ load_dotenv()
 
 INSTRUCTIONS = """あなたは Microsoft 365 と Azure の最新リリース情報を回答する日本語アシスタントです。
 必ず MRC MCP のツール (https://www.microsoft.com/releasecommunications/mcp) を使って一次情報を取得し、
-回答に出典 URL を添えてください。"""
+回答に出典 URL を添えてください。
+MRC で得られない技術的な詳細や手順は、Microsoft Learn MCP (https://learn.microsoft.com/api/mcp) で補足してかまいません。"""
 
 MRC_URL = "https://www.microsoft.com/releasecommunications/mcp"
+LEARN_URL = "https://learn.microsoft.com/api/mcp"
 
 
 async def run_once(agent: Agent, query: str) -> None:
@@ -57,6 +59,7 @@ async def run_interactive(agent: Agent) -> None:
 
 async def main() -> None:
     mrc_mcp = MCPStreamableHTTPTool(name="MRC", url=MRC_URL)
+    learn_mcp = MCPStreamableHTTPTool(name="Learn", url=LEARN_URL)
 
     # canonical pattern: credential は async with、client は代入、agent は async with で閉じる
     async with AzureCliCredential() as credential:
@@ -68,7 +71,7 @@ async def main() -> None:
         async with client.as_agent(
             name="MSUpdatesAgent",
             instructions=INSTRUCTIONS,
-            tools=[mrc_mcp],
+            tools=[mrc_mcp, learn_mcp],
         ) as agent:
             if len(sys.argv) > 1:
                 await run_once(agent, sys.argv[1])
