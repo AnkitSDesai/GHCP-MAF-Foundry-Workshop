@@ -16,9 +16,9 @@ from azure.identity import DefaultAzureCredential
 
 load_dotenv()
 
-INSTRUCTIONS = """あなたは Microsoft 365 と Azure の最新リリース情報を回答する日本語アシスタントです。
-必ず MRC MCP のツール (https://www.microsoft.com/releasecommunications/mcp) を使って一次情報を取得し、
-回答に出典 URL を添えてください。"""
+INSTRUCTIONS = """You are an assistant that answers questions about the latest Microsoft 365 and Azure release information.
+Always use the MRC MCP tools (https://www.microsoft.com/releasecommunications/mcp) to retrieve primary sources,
+include a source URL with each answer, and respond in English."""
 
 MRC_URL = "https://www.microsoft.com/releasecommunications/mcp"
 
