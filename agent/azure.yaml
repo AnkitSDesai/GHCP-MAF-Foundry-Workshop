@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: ms-updates-agent
+services:
+    ms-updates-agent:
+        project: .
+        host: azure.ai.agent
+        language: python
+        uses:
+            - workshop-foundry-ankitdesai
+        env:
+            AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+        agentEndpoint:
+            authorizationSchemes:
+                - type: BotServiceRbac
+            protocols:
+                - responses
+                - invocations
+                - invocations_ws
+                - activity
+        codeConfiguration:
+            dependencyResolution: remote_build
+            entryPoint: main.py
+            runtime: python_3_13
+        container:
+            resources:
+                cpu: "0.5"
+                memory: 1Gi
+        kind: hosted
+        name: ms-updates-agent
+        protocols:
+            - protocol: responses
+              version: 2.0.0
+            - protocol: invocations
+              version: 2.0.0
+            - protocol: invocations_ws
+              version: 2.0.0
+            - protocol: activity
+              version: 2.0.0
+    workshop-foundry-ankitdesai:
+        host: azure.ai.project
+        endpoint: https://foundry-ankitdesai.services.ai.azure.com/api/projects/workshop-foundry-ankitdesai
+infra:
+    provider: microsoft.foundry
